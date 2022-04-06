@@ -1,0 +1,10 @@
+<launch>
+    <!-- CougarBotのURDFモデルをパラメータサーバにロードする -->
+    <param name="robot_description" textfile="$(find arm_gazebo)/urdf/congarbot.urdf" />
+
+    <!-- 空のワールドでGazeboを開始する -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+
+    <!-- GazeboでCougarBotを生成し、パラメータサーバからのその記述を受ける -->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_mode1" args="-param robot_description -urdf -model cougarbot" />
+</launch>
